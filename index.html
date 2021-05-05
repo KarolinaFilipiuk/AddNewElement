@@ -1,6 +1,6 @@
 <!-- 
     PLAN DZIAŁANIA:
-    Zadania w HTML:
+    Zadania w HTML i CSS:
     1. stworzyć plik indeks.html i strukturę dokumentu
     2. stworzyć przycisk i kwadraty w html
     3. ostylować przycisk i kwadraty, które będą tworzone
@@ -13,3 +13,71 @@
     5. stworzyć licznik i uzupełnić zawartość div o wartość licznika
     6. za pomocą instrukcji warunkowej stwierdzić czy dany element jest wielokrotnością 5, jeśli tak - nadać mu inną klasę
  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body button {
+            display: block;
+            margin: 20px auto;
+            padding: 20px 30px;
+            border: 4px dashed green;
+            border-radius: 20%;
+            outline: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        body button:active {
+            background-color: green;
+            border: 4px dashed lightgreen;
+        }
+
+        div {
+            width: 30px;
+            height: 30px;
+            background-color: #bba;
+            margin: 5px;
+            float: left;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border: 2px solid black
+        }
+
+        .cirle {
+            background-color: lightgreen;
+            border-radius: 50%;
+            color: black;
+            border: 2px solid black
+        }
+    </style>
+</head>
+
+<body>
+    <button>Utwórz element</button>
+
+    <script>
+        const button = document.querySelector("button")
+        let count = 0
+
+        const addElement = () => {
+            const divElement = document.createElement("div")
+            divElement.textContent = ++count
+            if (!(count % 5)) {
+                divElement.classList.add('cirle')
+            }
+            document.body.appendChild(divElement)
+        }
+
+        button.addEventListener("click", addElement)
+    </script>
+    <!-- <script src="app.js"> </script> -->
+</body>
+
+</html>
